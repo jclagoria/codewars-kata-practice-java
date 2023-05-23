@@ -28,7 +28,7 @@ public class TravelCase {
     public static void main(String[] args) {
 
         String result = travel(address_A, "AA 45522");
-        String otherResult = SolutionWithStreams(address_A, "RE 13200");
+        String otherResult = SolutionWithStreams(address_A, "OH 43071");
         System.out.println(otherResult);
 
     }
