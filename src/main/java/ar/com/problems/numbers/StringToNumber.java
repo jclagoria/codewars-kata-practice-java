@@ -11,7 +11,7 @@ public class StringToNumber {
 
     private static int convertStringToInt(String str){
 
-        return Integer.valueOf(str);
+        return Integer.parseInt(str);
 
     }
 

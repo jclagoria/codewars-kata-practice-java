@@ -19,19 +19,13 @@ import static java.util.stream.Collectors.joining;
  * NOTE: All numbers will be whole numbers greater than 0.
  */
 public class WriteNumberExpandedForm {
-    public static void main(String[] args) {
 
-        System.out.println(expandedForm(3021));
-        System.out.println(expandedFormIntStream(900000));
-
-    }
-
-    private static String expandedForm(int num) {
+    public static String expandedForm(int num) {
 
         List<Integer> numValues = new ArrayList<>();
 
         while(num > 0){
-            numValues.add(0, num%10);
+            numValues.add(0, num % 10);
             num = num / 10;
         }
         var numOfZeros = numValues.size();
@@ -53,7 +47,7 @@ public class WriteNumberExpandedForm {
         return  value;
     }
 
-    private static String expandedFormIntStream(int num) {
+    public static String expandedFormIntStream(int num) {
         String strNum = String.valueOf(num);
 
         return IntStream.range(0, strNum.length())
@@ -63,6 +57,32 @@ public class WriteNumberExpandedForm {
                 )
                 .mapToObj(String::valueOf)
                 .collect(joining(" + "));
+    }
+
+    public static String expandedFormAWayEasy(int num)
+    {
+        var numberStr = String.valueOf(num);  // Convert the number to a string.
+        var length = numberStr.length();         // Get the total number of digits.
+        StringBuilder result = new StringBuilder();  // Use StringBuilder for efficient string concatenation.
+
+        int placeValue = (int) Math.pow(10, length - 1); // Start with the highest place value.
+
+        for (int i = 0; i < length; i++) {
+            var digit = numberStr.charAt(i);    // Get the digit at the current position.
+            if (digit == '0') {
+                placeValue /= 10;  // Reduce the place value for the next digit.
+                continue;          // Skip if the digit is zero.
+            }
+
+            if (!result.isEmpty()) {
+                result.append(" + ");            // Append " + " for non-first entries.
+            }
+            result.append((digit - '0') * placeValue);  // Append the expanded form of the current digit.
+
+            placeValue /= 10;  // Reduce the place value by dividing by 10.
+        }
+
+        return result.toString();  // Convert StringBuilder to a final string.
     }
 
 }

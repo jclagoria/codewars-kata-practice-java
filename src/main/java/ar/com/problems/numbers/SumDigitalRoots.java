@@ -28,7 +28,7 @@ public class SumDigitalRoots {
                
 
                 for (Integer intDigit : arrydigits) {
-                    sumDigits += intDigit.intValue();
+                    sumDigits += intDigit;
                 }
                 arrydigits = new ArrayList<>();
 
