@@ -21,7 +21,7 @@ public class HerpnsFormula {
         BiFunction<Integer, Integer, Integer> restFormula = (a, b) -> a - b;
         BiFunction<Integer, Integer, Integer> multiplyFormula = (a, b) -> a * b;
 
-        Function<Integer, Double> formula = value -> Math.sqrt(value);
+        Function<Integer, Double> formula = Math::sqrt;
 
         int valueA = multiplyFormula.apply(valueSemiPerimeter,
                 restFormula.apply(valueSemiPerimeter, operatorA));
@@ -33,7 +33,7 @@ public class HerpnsFormula {
 
     private static int calculateSemiPerimeter(int operatorA, int operatorB, int operatorC) {
 
-        BiFunction<Integer, Integer, Integer> sumFunction = (a, b) -> a + b;
+        BiFunction<Integer, Integer, Integer> sumFunction = Integer::sum;
         BiFunction<Integer, Integer, Integer> divisionFuntion = (a, b) ->  a / b;
 
 

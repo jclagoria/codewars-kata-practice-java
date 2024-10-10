@@ -16,14 +16,14 @@ public class MixedSum {
 
         int sumValue = 0;
 
-        for (int i = 0; i < listElements.size(); i++) {
+        for (Object listElement : listElements) {
 
             int evalInt = 0;
 
-            if(listElements.get(i) instanceof String){
-                evalInt = Integer.parseInt((String) listElements.get(i));
+            if (listElement instanceof String) {
+                evalInt = Integer.parseInt((String) listElement);
             } else
-                evalInt = (int) listElements.get(i);
+                evalInt = (int) listElement;
 
             sumValue = sumValue + evalInt;
 
@@ -38,7 +38,7 @@ public class MixedSum {
         int valueSum = mixedArray.stream()
                 .map(Object::toString)
                 .map(Integer::valueOf)
-                .reduce(0, (a , b) -> a + b);
+                .reduce(0, Integer::sum);
 
         System.out.println(valueSum);
 
