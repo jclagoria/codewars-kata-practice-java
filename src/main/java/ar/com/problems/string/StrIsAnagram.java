@@ -17,24 +17,21 @@ public class StrIsAnagram {
             return false;
         }
 
-        // Create frequency maps for characters in both strings
-        Map<Character, Integer> freqMapA = new HashMap<>();
-        Map<Character, Integer> freqMapB = new HashMap<>();
+        int[] count = new int[256]; // ASCII size
 
         // Populate frequency map for string a
         for (int i = 0; i < strA.length(); i++) {
-            char ch = strA.charAt(i);
-            freqMapA.put(ch, freqMapA.getOrDefault(ch, 0) + 1);
+            count[strA.charAt(i)]++;
         }
 
-        // Populate frequency map for string b
+        // Check if the characters in string b are in the frequency map
         for (int i = 0; i < strB.length(); i++) {
-            char ch = strB.charAt(i);
-            freqMapB.put(ch, freqMapB.getOrDefault(ch, 0) + 1);
+            if (--count[strB.charAt(i)] < 0) {
+                return false;
+            }
         }
 
-        // Compare the frequency maps
-        return freqMapA.equals(freqMapB);
+        return true;
     }
 
     static boolean isAnagramUsingArrays(String strA, String strB) {

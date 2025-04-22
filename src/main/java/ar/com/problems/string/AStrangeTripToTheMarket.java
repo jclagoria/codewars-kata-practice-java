@@ -21,7 +21,18 @@ package ar.com.problems.string;
  */
 public class AStrangeTripToTheMarket {
 
+    /**
+     * Returns true if the input text contains the target phrases that identify
+     * the Loch Ness Monster, false otherwise.
+     *
+     * @param text the input text to search
+     * @return true if the text identifies the Loch Ness Monster, false otherwise
+     */
     public static boolean isLockNessMonster(String text){
+        if (text == null) {
+            return false; // null input, not the monster
+        }
+
         // Convert the text to lowercase to make the search case-insensitive
         String lowerCaseText = text.toLowerCase();
 

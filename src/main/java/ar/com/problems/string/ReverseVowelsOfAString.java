@@ -25,7 +25,20 @@ import java.util.Set;
  */
 public class ReverseVowelsOfAString {
 
+    /**
+     * Given a string s, reverse only all the vowels in the string and return it.
+     *
+     * The vowels are 'a', 'e', 'i', 'o', and 'u',
+     * and they can appear in both lower and upper cases, more than once.
+     *
+     * @param s the input string
+     * @return The string with all the vowels reversed
+     */
     public static String reverseVowels(String s) {
+        if (s == null) {
+            throw new NullPointerException("Input string cannot be null");
+        }
+
         // Define a set of vowels for fast lookup
         Set<Character> vowels = new HashSet<>();
         for (char c : "aeiouAEIOU".toCharArray()) {
@@ -40,10 +53,12 @@ public class ReverseVowelsOfAString {
         while (left < right) {
             // Move left pointer to the next vowel
             while (left < right && !vowels.contains(chars[left])) {
+                // If the character is not a vowel, move to the next one
                 left++;
             }
             // Move right pointer to the previous vowel
             while (left < right && !vowels.contains(chars[right])) {
+                // If the character is not a vowel, move to the previous one
                 right--;
             }
             // Swap vowels at left and right pointers
