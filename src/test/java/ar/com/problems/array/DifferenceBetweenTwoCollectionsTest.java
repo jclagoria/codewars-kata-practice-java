@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class DifferenceBetweenTwoCollectionsTest extends BaseTest {
 
