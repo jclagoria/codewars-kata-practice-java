@@ -30,12 +30,16 @@ package ar.com.problems.array;
 public class OddMarchBits8bits {
 
     public static int[][] bitMarch(int n) {
-
-        int rows = (8 - n) + 1;
-
-        String baseString = new String();
-
-        return null;
+        int steps = 8 - n + 1;
+        int[][] result = new int[steps][8];
+        for (int i = 0; i < steps; i++) {
+            int start = 7 - n - i + 1;
+            int end = 7 - i;
+            for (int j = start; j <= end; j++) {
+                result[i][j] = 1;
+            }
+        }
+        return result;
     }
 
 }

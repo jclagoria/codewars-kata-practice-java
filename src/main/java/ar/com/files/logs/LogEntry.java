@@ -1,4 +1,4 @@
-package ar.com.files;
+package ar.com.files.logs;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

@@ -1,4 +1,4 @@
-package ar.com.files;
+package ar.com.files.logs;
 
 import java.io.BufferedReader;
 import java.nio.file.Files;
